@@ -1,0 +1,26 @@
+.cover {
+    height: 100%;
+    min-height: 500px;
+    background-color: black;
+    background-image: url('https://mayamovil.com.mx/web/image/2221-73fd2343/FAQ-BANNER.png');
+    background-size: cover;
+    h1 {
+        color:#fff;
+        font-size: 60px;
+        margin:0;
+    }
+    h3 {
+        color:#fff;
+        font-size: 30px;
+        margin:0;
+    }
+    .title {
+        margin-top: 150px;
+    }
+}
+
+@media  only screen and (max-width: 500px) and (min-width: 1px) {
+    .cover {
+        background-position: 75%;
+    }
+}

@@ -1,0 +1,155 @@
+.commerces{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-commerces {
+    height: 100px;
+
+    button{
+    border-radius: 30px;
+    background: linear-gradient(45deg, #EE7206 0%, #ff4363 83%);
+    border: none;
+    height: 50px;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    }
+}
+
+.commerces-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    column-gap: 20px;
+    padding-bottom: 100px; 
+    width: 80%;
+}
+
+.commerce-card{
+    background: -webkit-linear-gradient(#ff4363, #EE7206);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    box-shadow: 5px 8px 31px 1px #e8e8e8;
+    border-radius: 44px;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 400px;
+    max-height: 575px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    color: #fff;
+    
+    /*border-radius: 44px;
+    background: linear-gradient(45deg, #EE7206 0%, #ff4363 83%);
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 230px;
+    max-height: 230px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    color: #fff;*/
+    &__top{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 32px 10px 0px 10px;
+        &__left{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+        }
+        &__right{
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__bottom{
+        font-size: 12px;
+        padding: 0px 10px 10px 10px;
+    }
+
+}
+
+.data-top {
+    display: flex;
+    padding: 20px 30px 7px;
+    .commercename-icon {
+        svg {
+            color: #EE7206;
+            font-size: 24px;
+        }
+    }
+    .commercename-name {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -1px;
+    }
+}
+
+.data-center {
+    display: flex;
+    .commercename-icon {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        svg {
+            color: #c4c4c4;
+    font-size: 35px;
+        }
+
+    }
+    .commercename-k {
+        font-size: 47px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+
+.data-bottom {
+    padding: 0 20%;
+    margin-top: 35px;
+    span {
+        font-size: 22px;
+        letter-spacing: -1px;
+        font-weight: 700;
+    }
+    p {
+        margin: 0;
+        padding: 0;
+    }
+    .suburb {
+        letter-spacing: -1px;
+        font-weight: 700;
+    }
+    .city {
+        font-size: 13px;
+        margin-top: 20px;
+        font-weight: 700;
+    }
+    .zipcode {
+        font-size: 16px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        svg {
+            color: #c4c4c4;
+        }
+    }
+}
+
+@media  only screen and (max-width: 500px) and (min-width: 1px) {
+    .commerce-card{
+        background: #fff;
+        color: #000;
+        -webkit-text-fill-color: #454142;
+    } 
+}

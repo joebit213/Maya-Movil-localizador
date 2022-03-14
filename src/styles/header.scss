@@ -1,0 +1,44 @@
+.navbar {
+    &-light {
+        background-color: #fff;
+        height: 40px;
+        box-shadow: 1px 1px 9px #bfbfbf;;
+    }
+   .header-logo {
+
+   }
+   .top-menu {
+        display:block;
+        
+        .desktop-menu {
+            display:none;
+       }
+   }
+
+
+}
+
+.menu {
+    display: none;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #212529 !important;
+    font-weight: 500 !important;
+}
+
+.nav-header {
+    ul.navbar-nav {
+        li {
+        font-weight: 500 !important;
+        text-transform: uppercase;
+        }
+    }
+    ul.dropdown-menu {
+        li {
+        color: #121518 !important;
+        font-weight: 500 !important;
+        text-transform: initial;
+        }
+    }
+}
