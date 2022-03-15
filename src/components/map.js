@@ -7,8 +7,8 @@ import { faMailBulk, faMapMarkerAlt, faStore } from '@fortawesome/free-solid-svg
 
 export default function Map() {
 
-    const [latitude, setLatitude] = useState()
-    const [longitude, setLongitude] = useState()
+    const [latitude, setLatitude] = useState('')
+    const [longitude, setLongitude] = useState('')
     const [geolocationAvailable, setGeolocationAvailable] = useState()
     const [geolocationStatus, setGeolocationStatus] = useState('notready')
     //The commerce state stores the response from a succesfull, request to the pagaphone api
@@ -19,22 +19,30 @@ export default function Map() {
     const [allCommercesReady, setAllCommercesReady] = useState('notready')
     const [errorState, setErrorState] = useState()
 
-    const getCoordinates = async (position) => {
-        // console.log("Latitude:", position.coords.latitude)
-        // console.log("Longitude:", position.coords.longitude)
-        setLatitude(position.coords.latitude)
-        setLongitude(position.coords.longitude)
+    const getCoordinates = (position) => {
+ 
+        let latitudeS = position.coords.latitude
+        let longitudeS = position.coords.longitude 
+
         setGeolocationStatus('ready')
+
+        setLatitude(latitudeS)
+        setLongitude(longitudeS)
+        getToken(latitudeS, longitudeS)
     }
 
     const coordinates = () => {
-        geolocationAvailable === 'yes' ?
+        if (navigator.geolocation) { //check if geolocation is available
             navigator.geolocation.getCurrentPosition(getCoordinates)
-            :
+
+            
+        }else {
             setGeolocationStatus('notavailable')
+        }
     }
 
-    const getToken =  async() => {
+    const getToken =  async(latitudeS, longitudeS) => {
+        
         await fetch("https://mvno-api.pagaphone.com/token/generateToken", {
             body: "user=MjEwMDUzNVVTMTU0MTc3LVBQLUFQSQ%3D%3D&password=MDAyMTAwN1BQMTg3MTc3LUFQSTk5NTIyMTAwNTM1VVMxNTQxNzctUFAtQVBJ",
             headers: {
@@ -45,7 +53,8 @@ export default function Map() {
           }).then(res => {
               res.json().then((obj) => {
                   let token = obj.token
-                  getPagaphoneCommerces(token)
+                  getPagaphoneCommerces(token, latitudeS, longitudeS)
+                  getExtremeCommerces(latitudeS, longitudeS)
                 })
             }).catch(err => {
                 console.log(err)
@@ -53,14 +62,14 @@ export default function Map() {
             
         }
         
-    const getPagaphoneCommerces = async(token) => {
+    const getPagaphoneCommerces = async(token, latitudeS, longitudeS) => {
         await axios({
             headers: { "authorization-ug": `Bearer-UG ${token}` },
             method: 'post',
             url: 'https://mvno-api.pagaphone.com/sales/getSalesAddress',
             data: {
-                "latitude": latitude,
-                "longitude": longitude,
+                "latitude": latitudeS,
+                "longitude": longitudeS,
                 "distance": 3
             }
         }).then(response => {
@@ -70,37 +79,43 @@ export default function Map() {
             ):(
                 setPagaphoneCommerces([])
             )
-            
+            const allCommerces = [...pagaphoneCommerces, ...extremeCommerces]
+            setCommerces(allCommerces)
+            setCommercesReady('ready?')
             }).catch(error => {
                 console.log('PP Error:', error.response.data.mensaje)
                 setPagaphoneCommerces([])
             })
     }
 
-    const getExtremeCommerces = async() => {
-        await axios.get(`https://tae.xtremecard.com.mx:447/XtremeServices/api/GeolocationResource/getcommerces?latitude=${latitude}&longitude=${longitude}&radius=2&keyAuth=TESTING_API_KEY`).then(response => {
+    const getExtremeCommerces = async(latitudeS, longitudeS) => {
+        await axios.get(`https://tae.xtremecard.com.mx:447/XtremeServices/api/GeolocationResource/getcommerces?latitude=${latitudeS}&longitude=${longitudeS}&radius=2&keyAuth=TESTING_API_KEY`).then(response => {
             console.log('Extreme:', response.data.commerces)
             
             response.data.commerces ? setExtremeCommerces(response.data.commerces) : console.log(`EX Error ${response.data.errorCode}`, response.data.errorMessage) 
             response.data.errorCode ? setExtremeCommerces([]) : setErrorState('noerrorinextreme')
-
+            const allCommerces = [...pagaphoneCommerces, ...extremeCommerces]
+            setCommerces(allCommerces)
+            setCommercesReady('ready?')
         }).catch(error => {
             console.log('EX Error', error)
             
         })
     }
 
-    const handleGetCommerces = async () => {      
-        await Promise.all([
-            getToken(),
-            //getPagaphoneCommerces(),
-            getExtremeCommerces(),,
-        ])
-        return setCommercesReady('ready?')
+    const handleGetCommerces = async () => {
+
+        if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
+            coordinates()
+            return setCommercesReady('ready?')
+        }, function(error) {
+            console.log(error, 'Ubicación no activada');
+            alert('Active la geolocalizacion')
+        });
+
     }
 
     const commercesCards = () => {
-
         return commerces.map(commerce => {
             const distanceRaw = typeof(commerce.distance) === 'string' ? parseFloat(commerce.distance) : commerce.distance //some stri
             const distance = distanceRaw.toFixed(2)
@@ -170,21 +185,16 @@ export default function Map() {
     }
 
     useEffect(() => {
-        
-        if ('geolocation' in navigator) {
-            // console.log('yes its available')
+        if (navigator.geolocation) { //check if geolocation is available
             setGeolocationAvailable('yes')
-            
-        } else {
-            console.log('Geolocalización no está disponible en este dispositivo')
-            setGeolocationAvailable('no')
+            console.log('si');
         }
     }, [])
 
     useEffect(() => {
-        console.log('getting coordinates')
+       console.log('getting coordinates')
         coordinates()
-    }, [geolocationAvailable])
+    }, [])
 
     // useEffect(() => {
     //     console.log('latitude type', typeof latitude)
@@ -194,11 +204,11 @@ export default function Map() {
 
 
     useEffect(() => {
-        console.log('Commerces Ready:', commercesReady)
+       // console.log('Commerces Ready:', commercesReady)
         
         const combineCommerces = () => {
-            console.log(' pagaphone commerces', pagaphoneCommerces)
-            console.log(' extreme commerces', extremeCommerces)
+           // console.log(' pagaphone commerces', pagaphoneCommerces)
+            //console.log(' extreme commerces', extremeCommerces)
             const allCommerces = [...pagaphoneCommerces, ...extremeCommerces]
             setCommerces(allCommerces)
         }
