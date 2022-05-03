@@ -12,7 +12,7 @@ export default function PlansMovilLp2() {
 
             <div className='card_plans card-img-l row'>
               <div className='content_img w-50'>
-                <img src="https://res.cloudinary.com/dn3s8lyeh/image/upload/v1651584544/maya/WEB_GRAFICOS-PERFILES-15-15.png" alt="" />
+                <img src="https://res.cloudinary.com/dn3s8lyeh/image/upload/v1651593314/maya/WEB_GRAFICOS-1.png" alt="" />
               </div>
               <div className='content_info w-50'>
                 <h1>NOVATOS</h1>
@@ -66,13 +66,13 @@ export default function PlansMovilLp2() {
                 <button>Lo necesito</button>
               </div>
               <div className='content_img w-50'>
-                <img src="https://res.cloudinary.com/dn3s8lyeh/image/upload/v1651584544/maya/WEB_GRAFICOS-PERFILES-15-15.png" alt="" />
+                <img src="https://res.cloudinary.com/dn3s8lyeh/image/upload/v1651593313/maya/WEB_GRAFICOS-2.png" alt="" />
               </div>
             </div>
 
             <div className='card_plans card-img-l row'>
               <div className='content_img w-50'>
-                <img src="https://res.cloudinary.com/dn3s8lyeh/image/upload/v1651584544/maya/WEB_GRAFICOS-PERFILES-15-15.png" alt="" />
+                <img src="https://res.cloudinary.com/dn3s8lyeh/image/upload/v1651593313/maya/WEB_GRAFICOS-3.png" alt="" />
               </div>
               <div className='content_info w-50'>
                 <h1>INFLUENCERS</h1>
@@ -126,13 +126,13 @@ export default function PlansMovilLp2() {
                 <button>Lo necesito</button>
               </div>
               <div className='content_img w-50'>
-                <img src="https://res.cloudinary.com/dn3s8lyeh/image/upload/v1651584544/maya/WEB_GRAFICOS-PERFILES-15-15.png" alt="" />
+                <img src="https://res.cloudinary.com/dn3s8lyeh/image/upload/v1651593314/maya/WEB_GRAFICOS-4.png" alt="" />
               </div>
             </div>
 
             <div className='card_plans card-img-l row'>
               <div className='content_img w-50'>
-                <img src="https://res.cloudinary.com/dn3s8lyeh/image/upload/v1651584544/maya/WEB_GRAFICOS-PERFILES-15-15.png" alt="" />
+                <img src="https://res.cloudinary.com/dn3s8lyeh/image/upload/v1651593598/maya/WEB_GRAFICOS-5.png" alt="" />
               </div>
               <div className='content_info w-50'>
                 <h1>VIAJEROS</h1>
