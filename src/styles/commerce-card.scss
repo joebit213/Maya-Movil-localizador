@@ -8,7 +8,7 @@
 .btn-commerces {
     height: 100px;
 
-    button{
+    span{
     border-radius: 30px;
     background: linear-gradient(45deg, #EE7206 0%, #ff4363 83%);
     border: none;
@@ -31,11 +31,10 @@
     width: 80%;
 }
 
-.commerce-card{
-    background: -webkit-linear-gradient(#ff4363, #EE7206);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    box-shadow: 5px 8px 31px 1px #e8e8e8;
+.commerce-card {
+    background-color: white;
+    //-webkit-background-clip: text;
+    box-shadow: 5px 8px 31px 1px #bbbbbb;
     border-radius: 44px;
     min-width: 250px;
     max-width: 250px;
@@ -43,7 +42,7 @@
     max-height: 575px;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    color: #fff;
+    color: rgb(0, 0, 0);
     
     /*border-radius: 44px;
     background: linear-gradient(45deg, #EE7206 0%, #ff4363 83%);
@@ -88,6 +87,10 @@
             color: #EE7206;
             font-size: 24px;
         }
+
+        img {
+            max-width: 150px;
+        }
     }
     .commercename-name {
         font-size: 15px;
@@ -97,7 +100,7 @@
 }
 
 .data-center {
-    display: flex;
+    //display: flex;
     .commercename-icon {
         display: flex;
         flex-direction: column;
