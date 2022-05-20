@@ -10,6 +10,75 @@ export default function PlansMovilLp2() {
 
           <div className='row plans-lp2'>
 
+            <div className='twoplans background-blue'>
+
+              <div className='card_plans card-img-l row'>
+                <div className='content_img w-50'>
+                  <img src="https://cdn.shopify.com/s/files/1/0461/4861/6346/files/WEB_GRAFICOS2-INTERNET-5.png?v=1653071993" alt="" />
+                </div>
+                <div className='content_info w-50'>
+                  <h1>MÓDEM+ 5GB</h1>
+                  <p>Lleva la conexión al siguiente nivel y a donde quieras con el Internet Móvil de Maya. Adquiere tu módem con un paquete de datos de bienvenida y recárgalo cuando quieras.</p>
+                  <p>
+                    <strong>Datos para navegar: 5GB</strong>
+                    <br />
+                    <strong>Red: 4.5G LTE</strong>
+                    <br />
+                    <strong>Vigencia: 30 días</strong>
+                  </p>
+
+                  <p>
+                    <small>Condiciones: <br />
+                    La duración del Internet Móvil es de 30 días. Los GBs que no hayas consumido durante este periodo expirarán. No acumulables.
+                    <br />
+                    Ejemplos de consumo: 80 horas de streaming de música, 20 horas de videos y llamadas, 250 horas de navegación en la web, 20 horas de videollamadas.*
+                    <br />
+                    *Calculo aproximado con base en el simulador de consumo de datos IFT
+                    </small>
+                  </p>
+
+                  <button>Lo necesito</button>
+                </div>
+              </div>
+
+              <div className='card_plans card-img-r row'>
+              <div className='content_info w-50'>
+                <h1>MÓDEM+ 10GB</h1>
+                <p>Lleva la conexión al siguiente nivel y a donde quieras con el Internet Móvil de Maya. Adquiere tu módem con un paquete de datos de bienvenida y recárgalo cuando quieras.</p>
+                <p>
+                  <strong>Datos para navegar: 10GB</strong>
+                  <br />
+                  <strong>Red: 4.5G LTE</strong>
+                  <br />
+                  <strong>Vigencia: 30 días</strong>
+                </p>
+
+                <p>
+                  <small>Condiciones: <br />
+                  La duración del Internet Móvil es de 30 días. Los GBs que no hayas consumido durante este periodo expirarán. No acumulables.
+
+                  <br />
+                  Ejemplos de consumo: 170 horas de streaming de música, 30 horas de videos y llamadas, 500 horas de navegación en la web, 40 horas de videollamadas.*
+                  <br />
+                  *Calculo aproximado con base en el simulador de consumo de datos IFT
+                  </small>
+                </p>
+
+                <button>Lo necesito</button>
+              </div>
+              <div className='content_img w-50'>
+                <img src="https://cdn.shopify.com/s/files/1/0461/4861/6346/files/WEB_GRAFICOS2-INTERNET-10.png?v=1653071993" alt="" />
+              </div>
+            </div>
+
+            </div>
+
+            <div className='card-belowplans'>
+              <p><strong>
+                Una vez terminada la vigencia o los datos de navegación de tu Paquete de Bienvenida, Podrás elegir cualquiera de nuestras recargas de navegacion disponibles.  
+              </strong></p>
+            </div>
+
             <div className='card_plans card-img-l row'>
               <div className='content_img w-50'>
                 <img src="https://res.cloudinary.com/dn3s8lyeh/image/upload/v1651593314/maya/WEB_GRAFICOS-1.png" alt="" />

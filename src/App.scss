@@ -275,3 +275,20 @@
   }
 
 }
+
+.background-blue {
+  background-color: #cbcbff6e;
+}
+
+.card-belowplans {
+  background: linear-gradient(45deg, #EE7206 0%, #ff4363 83%);
+  color: white;
+  max-width: 720px;
+  margin: 2em auto 0;
+  padding: 15px 7px;
+  border-radius: 12px;
+
+  p {
+    margin: 0;
+  }
+}
